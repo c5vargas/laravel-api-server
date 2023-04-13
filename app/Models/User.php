@@ -38,8 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function scopeWorkers($query)
+    public function scopeCustomers($query)
     {
-        return $query->where('role', 1);
+        return $query->where('role', 'customer');
     }
 }
