@@ -33,22 +33,27 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="container h-100">
-            <div class="d-flex flex-lg-row flex-column h-100 justify-content-around align-items-center">
-                <div class=" p-5">
-                    <h3>{{ env('APP_NAME') }} · API v{{ env('APP_VERSION') }}</h3>
-                    <p>API Oficial de {{ env('APP_NAME') }} </p>
+        <div class="container-fluid h-100">
+            <div class="h-100">
+                <img src="{{ asset('assets/img/logo-devs.png') }}" class="p-5" width="400" alt="Laravel 8 API Server Logo">
+
+                <div class="d-flex flex-lg-row flex-column justify-content-around align-items-center">
+                    <div class=" p-5">
+                        <h3>{{ env('APP_NAME') }} · API v{{ env('APP_VERSION') }}</h3>
+                        <p>API Oficial de {{ env('APP_NAME') }} </p>
 <pre>"settings": {
     "app_name": "{{ env('APP_NAME') }}",
     "app_email": "{{ env('MAIL_FROM_ADDRESS') }}",
     "support_email": "soporte@jaestic.com",
 }</pre>
 <small>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</small>
-                </div>
-                <div class="">
-                    <img src="{{ asset('assets/img/mockup.png') }}" alt="API Developers" width="400px">
+                    </div>
+                    <div class="">
+                        <img src="{{ asset('assets/img/mockup.png') }}" alt="API Developers" width="400px">
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </body>
