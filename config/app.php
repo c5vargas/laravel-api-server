@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'logo' => env('APP_LOGO', 'https://jaestic.com/wp-content/uploads/2014/01/jaestic_logo.png'),
+    'logo' => env('APP_LOGO', 'https://raw.githubusercontent.com/c5vargas/default_laravel_api/main/public/assets/img/logo-devs.png'),
 
     /*
     |--------------------------------------------------------------------------

@@ -44,7 +44,8 @@
 <pre>"settings": {
     "app_name": "{{ env('APP_NAME') }}",
     "app_email": "{{ env('MAIL_FROM_ADDRESS') }}",
-    "support_email": "soporte@jaestic.com",
+    "app_version": "{{ env('APP_VERSION' )}}",
+    "app_url": "{{ env('APP_URL') }}"
 }</pre>
 <small>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</small>
                     </div>
