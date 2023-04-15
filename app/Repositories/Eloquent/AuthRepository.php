@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Laravel\Passport\PersonalAccessTokenResult;
 
 class AuthRepository extends BaseRepository implements AuthRepositoryInterface
 {
@@ -25,7 +26,7 @@ class AuthRepository extends BaseRepository implements AuthRepositoryInterface
         $this->model = $user;
     }
 
-    public function getAuth(): String
+    public function getAuth(): PersonalAccessTokenResult
     {
         $auth = auth()->guard('api')->user();
 

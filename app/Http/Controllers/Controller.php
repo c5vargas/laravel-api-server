@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Laravel\Passport\PersonalAccessTokenResult;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -35,7 +36,7 @@ class Controller extends BaseController
         $this->fractal->parseIncludes(explode(',', $request->get('include')));
     }
 
-    protected function respondWithToken(object $token, object $user)
+    protected function respondWithToken(PersonalAccessTokenResult $token, object $user)
     {
 
         $user = new Item($user, $this->transformer);

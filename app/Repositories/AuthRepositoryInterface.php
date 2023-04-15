@@ -4,10 +4,11 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Laravel\Passport\PersonalAccessTokenResult;
 
 interface AuthRepositoryInterface extends EloquentRepositoryInterface {
 
-    public function getAuth(): String;
+    public function getAuth(): PersonalAccessTokenResult;
 
     public function create(Array $data): Model;
 
