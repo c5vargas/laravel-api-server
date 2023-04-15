@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\User;
+use App\Repositories\AuthRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -10,9 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class AuthRepository extends BaseRepository
+class AuthRepository extends BaseRepository implements AuthRepositoryInterface
 {
-
     protected $model;
 
     /**
@@ -25,7 +25,7 @@ class AuthRepository extends BaseRepository
         $this->model = $user;
     }
 
-    public function getAuth()
+    public function getAuth(): String
     {
         $auth = auth()->guard('api')->user();
 
@@ -43,8 +43,6 @@ class AuthRepository extends BaseRepository
     public function create(Array $data): Model
     {
         $user = $this->model->fill($data);
-
-        $user->password = Hash::make($data['password']);
         $user->last_online = Carbon::now()->toDateTimeString();
 
         $user->save();
@@ -53,7 +51,7 @@ class AuthRepository extends BaseRepository
         return $user;
     }
 
-    public function login(String $email, String $password)
+    public function login(String $email, String $password): Array
     {
         $user = $this->model->where('email', $email)->first();
         if(!$user) {
@@ -78,17 +76,16 @@ class AuthRepository extends BaseRepository
         return $updated;
     }
 
-    public function resetPassword(Request $request)
+    public function resetPassword(Request $request): Bool
     {
         $isValid = DB::table('password_resets')->where(['email' => $request->email, 'token' => $request->token])->first();
+        $user = $this->model->firstOrFail()->where('email', $request->email);
 
         if(!$isValid){
             return false;
         }
 
-        $user = $this->model->firstOrFail()->where('email', $request->email);
-
-        $updated = $user->update(['password' => Hash::make($request->password)]);
+        $updated = $user->update(['password' => $request->password]);
 
         if($updated) {
             DB::table('password_resets')->where(['email'=> $request->email])->delete();
