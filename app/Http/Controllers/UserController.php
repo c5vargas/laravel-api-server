@@ -46,15 +46,15 @@ class UserController extends Controller
     {
         $updated = $this->repository->update($request->validated(), $request->input('user_id'));
 
-        if(!$updated) return $this->respondWithError('No se ha podido actualizar los datos del usuario', 401);
-        return $this->respondWithMessage('Los datos del usuario han sido actualizado correctamente');
+        if(!$updated) return $this->respondWithError(__('controller.common.error_500'), 500);
+        return $this->respondWithMessage(__('controller.user.updated'));
     }
 
     public function delete($id)
     {
         $deleted = $this->repository->delete($id);
 
-        if(!$deleted) return $this->respondWithError('Este usuario no puede ser eliminado.', 500);
-        return $this->respondWithMessage('Usuario eliminado correctamente');
+        if(!$deleted) return $this->respondWithError( __('controller.common.error_500'), 500);
+        return $this->respondWithMessage(__('controller.user.deleted'));
     }
 }

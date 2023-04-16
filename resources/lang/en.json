@@ -24,5 +24,8 @@
     "controller.auth.password_reset": "Your password has been reset!",
     "controller.auth.email_failed": "The email provided is not valid.",
     "controller.auth.forget_password": "We have emailed your password reset link!",
-    "controller.auth.logout": "The session has been successfully closed."
+    "controller.auth.logout": "The session has been successfully closed.",
+    "controller.user.deleted": "User successfully deleted.",
+    "controller.user.updated": "User data has been updated correctly.",
+    "controller.common.error_500": "An internal error has occurred, please try again later."
 }

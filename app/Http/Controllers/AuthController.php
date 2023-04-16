@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Eloquent\AuthRepository;
 use App\Events\WantResetPassword;
 use App\Http\Requests\Api\Authentication\CheckAuthRequest;
+use App\Http\Requests\Api\Authentication\ForgetPasswordRequest;
+use App\Http\Requests\Api\Authentication\LoginRequest;
 use App\Http\Requests\Api\Authentication\RegisterRequest;
 use App\Http\Requests\Api\Authentication\ResetPasswordRequest;
-use App\Http\Requests\Api\Authentication\LoginRequest;
 use App\Http\Requests\Api\Authentication\UpdateUserRequest;
-use App\Http\Requests\Api\Authentication\ForgetPasswordRequest;
 use App\Http\Transformers\UserTransformer;
+use App\Repositories\Eloquent\AuthRepository;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
