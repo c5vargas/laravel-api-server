@@ -15,5 +15,14 @@
     "mail.password.message_2": "We have received a request to reset the password for your account associated with :email. No changes have been made to your account yet.",
     "mail.password.message_3": "You can reset your password by clicking on the following link:",
     "mail.password.message_4": "Reset password",
-    "mail.password.message_5": "Sincerely, <br> :name."
+    "mail.password.message_5": "Sincerely, <br> :name.",
+    "controller.auth.no_token": "Invalid Token",
+    "controller.auth.invalid_password": "These credentials do not match our records.",
+    "controller.auth.profile_failed": "Your profile could not be updated.",
+    "controller.auth.profile_success": "Your account has been successfully updated.",
+    "controller.auth.email_or_token_invalid": "El token o el correo electrónico no es válido.",
+    "controller.auth.password_reset": "Your password has been reset!",
+    "controller.auth.email_failed": "The email provided is not valid.",
+    "controller.auth.forget_password": "We have emailed your password reset link!",
+    "controller.auth.logout": "The session has been successfully closed."
 }

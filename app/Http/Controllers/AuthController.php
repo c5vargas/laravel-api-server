@@ -34,7 +34,7 @@ class AuthController extends Controller
        $token = $this->repository->getAuth($request);
 
        if(!$token) {
-            return $this->respondWithError('Token no válido.', 401);
+            return $this->respondWithError( __('controller.auth.no_token'), 401);
         }
 
        return $this->respondWithToken($token, auth()->guard('api')->user());
@@ -52,7 +52,7 @@ class AuthController extends Controller
         $result = $this->repository->login($request->input('email'), $request->input('password'));
 
         if(!$result) {
-            return $this->respondWithError('Credenciales inválidas proporcionadas.', 401);
+            return $this->respondWithError( __('controller.auth.invalid_password'), 401);
         }
 
         return $this->respondWithToken($result['token'], $result['user']);
@@ -63,7 +63,7 @@ class AuthController extends Controller
         $user = $request->user();
         if($user) $user->token()->revoke();
 
-        return $this->respondWithMessage('Se ha cerrado la sesión con éxito.');
+        return $this->respondWithMessage( __('controller.auth.logout'));
     }
 
     public function updateUserProfile(UpdateUserRequest $request)
@@ -71,10 +71,10 @@ class AuthController extends Controller
         $updated = $this->repository->updateUserProfile($request->validated());
 
         if(!$updated) {
-            return $this->respondWithError('No se ha podido actualizar tu perfil.', 500);
+            return $this->respondWithError( __('controller.auth.profile_failed'), 500);
         }
 
-        return $this->respondWithMessage('Su cuenta ha sido actualizada con éxito.');
+        return $this->respondWithMessage( __('controller.auth.profile_success'));
     }
 
     public function resetPassword(ResetPasswordRequest $request)
@@ -82,10 +82,10 @@ class AuthController extends Controller
         $status = $this->repository->resetPassword($request);
 
         if(!$status) {
-            return $this->respondWithError('El token o el correo electrónico no es válido.', 401);
+            return $this->respondWithError(__('controller.auth.email_or_token_invalid'), 401);
         }
 
-        return $this->respondWithMessage('La contraseña se ha restablecido correctamente.');
+        return $this->respondWithMessage(__('controller.auth.password_reset'));
     }
 
     public function forgetPassword(ForgetPasswordRequest $request)
@@ -93,11 +93,11 @@ class AuthController extends Controller
         $result = $this->repository->forgetPassword($request->validated());
 
         if(!$result['user']) {
-            return $this->respondWithError('El correo electrónico proporcionado no es válido.', 401);
+            return $this->respondWithError( __('controller.auth.email_failed'), 401);
         }
 
         WantResetPassword::dispatch($result['user'], $result['token']);
 
-        return $this->respondWithMessage('Se ha enviado un correo electrónico con los pasos para restablecer la contraseña.');
+        return $this->respondWithMessage( __('controller.auth.forget_password'));
     }
 }
