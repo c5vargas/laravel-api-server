@@ -15,17 +15,35 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 
+## How works repository pattern arquitecture
+
+The Pattern Repository architecture in Laravel is a design pattern used to separate the business logic from the data access layer of an application.
+
+In this architecture, the data model is treated as a collection of objects, which are used to interact with the database. The Repository Pattern acts as an interface between the business layer and the data access layer. Instead of the business layer interacting directly with the data access layer, it does so through a repository that implements a defined interface.
+
 ## How to install
 
 The first thing to do is to clone the repository from this git repository.
 
 Once you have the software downloaded, you will need to configure the .env file. This file is important because it contains the settings needed to connect to the database and other important services.
 
-Composer is a package manager for PHP that is used to install software dependencies. Run the command ```composer install``` in the terminal in the directory of the downloaded software. Composer will install all the dependencies necessary for the software to function properly.
+Composer is a package manager for PHP that is used to install software dependencies. Run the command in the terminal in the directory of the downloaded software. Composer will install all the dependencies necessary for the software to function properly.
 
-This command is used to migrate the database and load the test data. Run the command ```php artisan migrate --seed``` in the terminal in the downloaded software directory. This will create the necessary tables in the database and load the initial data.
+```
+composer install
+```
 
-Run php artisan serve: Finally, run the command ```php artisan serve``` in the terminal in the directory of the downloaded software. This command will start a local server so you can access the software from your web browser.
+This command is used to migrate the database and load the test data. Run the command in the terminal in the downloaded software directory. This will create the necessary tables in the database and load the initial data.
+
+```
+php artisan migrate --seed
+```
+
+Run php artisan serve: Finally, run the command in the terminal in the directory of the downloaded software. This command will start a local server so you can access the software from your web browser.
+
+ ```
+ php artisan serve
+ ```
 
 ## Learning Laravel
 
