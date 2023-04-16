@@ -43,6 +43,6 @@ class WelcomeMailAuto extends Mailable
     {
         return $this->from(env('MAIL_FROM_ADDRESS', 'noreply@app.com'))
             ->view('emails.welcome')
-            ->subject(trans('¡Nueva cuenta en :name! Ya puede utilizar nuestra plataforma.', ['name' => $this->appName]));
+            ->subject( __('mail.welcome.subject', ['name' => $this->appName]) );
     }
 }

@@ -44,6 +44,6 @@ class ForgetPassword extends Mailable
     {
         return $this->from(env('MAIL_FROM_ADDRESS', 'noreply@app.com'))
             ->view('emails.forgetpassword')
-            ->subject(trans('Solicitud de restablecimiento de contraseña de :name', ['name' => $this->appName]));
+            ->subject(__('mail.password.subject', ['name' => $this->appName]));
     }
 }

@@ -6,7 +6,7 @@
   <meta name="x-apple-disable-message-reformatting">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content="telephone=no" name="format-detection">
-  <title>{{ __('Password reset request') }}</title><!--[if (mso 16)]><style type="text/css">a {text-decoration: none;}</style><![endif]--><!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--><!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+  <title>{{ __('mail.password.title') }}</title><!--[if (mso 16)]><style type="text/css">a {text-decoration: none;}</style><![endif]--><!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--><!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
   <style type="text/css">
     #outlook a {
       padding:0;
@@ -55,7 +55,7 @@
                   <td class="es-m-p0r" valign="top" align="center" style="padding:0;Margin:0;width:560px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td style="padding:0;Margin:0;padding-bottom:20px;font-size:0px" align="center"><img src="{{ $appLogo }}" alt="Logo" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;font-size:12px;max-height:120px" title="Logo"></td>
+                      <td style="padding:0;Margin:0;padding-bottom:20px;font-size:0px" align="center"><img src="{{ $appLogo }}" alt="Logo" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;font-size:12px;max-height:120px;max-width:100%;" title="Logo"></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -67,7 +67,7 @@
        <table class="es-content" cellspacing="0" cellpadding="0" align="center" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
          <tr>
           <td align="center" style="padding:0;Margin:0">
-           <table class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;border-top:10px solid #35c1b4;width:600px;border-bottom:10px solid #35c1b4" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+           <table class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;border-top:10px solid #ff2919;width:600px;border-bottom:10px solid #ff2919" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
              <tr>
               <td align="left" style="padding:0;Margin:0;padding-left:20px;padding-right:20px;padding-top:30px">
                <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
@@ -88,11 +88,11 @@
                   <td valign="top" align="center" style="padding:0;Margin:0;width:560px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td class="es-m-txt-l" align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:10px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#35c1b4">{{ __('Hola :name,', ['name' => $user->name]) }}</h3></td>
+                      <td class="es-m-txt-l" align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:10px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#ff2919">{{ __('mail.password.message_1', ['name' => $user->name]) }}</h3></td>
                      </tr>
                      <tr>
-                      <td align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">{{ __("Hemos recibido una solicitud para restablecer la contraseña de su cuenta asociada a :email. Todavía no se han realizado cambios en tu cuenta.", ['email' => $user->email])}}</strong></p><br><br>
-                       <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">{{ __('Puede restablecer su contraseña haciendo clic en el siguiente enlace:') }} <br><a href="{{ env('APP_URL').'/reset-password/'.$token }}" target="_blank">{{ __('Restablecer la contraseña') }}</a><br><br>{!! __('Atentamente, <br> :name.', ['name' => $appName]) !!}<br><br></p></td>
+                      <td align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">{{ __("mail.password.message_2", ['email' => $user->email])}}</strong></p><br><br>
+                       <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">{{ __('mail.password.message_3') }} <br><a href="{{ env('APP_URL').'/reset-password/'.$token }}" target="_blank">{{ __('mail.password.message_4') }}</a><br><br>{!! __('mail.password.message_5', ['name' => $appName]) !!}<br><br></p></td>
                      </tr>
                    </table></td>
                  </tr>

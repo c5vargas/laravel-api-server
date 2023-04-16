@@ -44,6 +44,6 @@ class WelcomeMail extends Mailable
     {
         return $this->from($this->fromUser->email)
             ->view('emails.welcome')
-            ->subject(trans('¡Nueva cuenta en :name! Ya puede utilizar nuestra plataforma.', ['name' => $this->appName]));
+            ->subject( __('mail.welcome.subject', ['name' => $this->appName]) );
     }
 }
