@@ -8,7 +8,7 @@ use Laravel\Passport\PersonalAccessTokenResult;
 
 interface AuthRepositoryInterface extends EloquentRepositoryInterface {
 
-    public function getAuth(): PersonalAccessTokenResult;
+    public function getAuth(): PersonalAccessTokenResult|bool;
 
     public function create(Array $data): Model;
 

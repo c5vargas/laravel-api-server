@@ -26,15 +26,16 @@ class AuthRepository extends BaseRepository implements AuthRepositoryInterface
         $this->model = $user;
     }
 
-    public function getAuth(): PersonalAccessTokenResult
+    public function getAuth(): PersonalAccessTokenResult|bool
     {
         $auth = auth()->guard('api')->user();
 
-        if(!$auth) return false;
+        if(!$auth)
+            return false;
 
-        $user = $this->model->where('email', $auth->email)->first();
+        $user = $this->find($auth->id);
+
         $token = $user->createToken(config('app.key'));
-
         $user->last_online = Carbon::now()->toDateTimeString();
         $user->save();
 
@@ -55,13 +56,12 @@ class AuthRepository extends BaseRepository implements AuthRepositoryInterface
     public function login(String $email, String $password): Array|Bool
     {
         $user = $this->model->where('email', $email)->first();
-        if(!$user) {
-            return false;
-        }
 
-        if(!Hash::check($password, $user->password)) {
+        if(!$user)
             return false;
-        }
+
+        if(!Hash::check($password, $user->password))
+            return false;
 
         $token = $user->createToken(config('app.key'));
 
@@ -88,9 +88,8 @@ class AuthRepository extends BaseRepository implements AuthRepositoryInterface
         $user->password = $request->password;
         $saved = $user->save();
 
-        if($saved) {
+        if($saved)
             DB::table('password_resets')->where(['email'=> $request->email])->delete();
-        }
 
         return $saved;
     }
@@ -104,6 +103,7 @@ class AuthRepository extends BaseRepository implements AuthRepositoryInterface
             'token' => $token,
             'created_at' => Carbon::now()
         ]);
+
         $user = $this->model->where('email', $data['email'])->firstOrFail();
 
         return ['user' => $user, 'token' => $token];
