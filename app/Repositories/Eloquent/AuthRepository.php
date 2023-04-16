@@ -52,7 +52,7 @@ class AuthRepository extends BaseRepository implements AuthRepositoryInterface
         return $user;
     }
 
-    public function login(String $email, String $password): Array
+    public function login(String $email, String $password): Array|Bool
     {
         $user = $this->model->where('email', $email)->first();
         if(!$user) {
@@ -80,19 +80,19 @@ class AuthRepository extends BaseRepository implements AuthRepositoryInterface
     public function resetPassword(Request $request): Bool
     {
         $isValid = DB::table('password_resets')->where(['email' => $request->email, 'token' => $request->token])->first();
-        $user = $this->model->firstOrFail()->where('email', $request->email);
+        $user = $this->model->where('email', $request->email)->first();
 
-        if(!$isValid){
+        if(!$isValid || !$user)
             return false;
-        }
 
-        $updated = $user->update(['password' => $request->password]);
+        $user->password = $request->password;
+        $saved = $user->save();
 
-        if($updated) {
+        if($saved) {
             DB::table('password_resets')->where(['email'=> $request->email])->delete();
         }
 
-        return $updated;
+        return $saved;
     }
 
     public function forgetPassword(Array $data): ?Array

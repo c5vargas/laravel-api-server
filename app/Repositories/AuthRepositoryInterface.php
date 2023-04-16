@@ -12,7 +12,7 @@ interface AuthRepositoryInterface extends EloquentRepositoryInterface {
 
     public function create(Array $data): Model;
 
-    public function login(String $email, String $password): Array;
+    public function login(String $email, String $password): Array|Bool;
 
     public function updateUserProfile(Array $data): Bool;
 
