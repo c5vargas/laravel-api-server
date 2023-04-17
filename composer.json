@@ -1,7 +1,13 @@
 {
-    "name": "laravel/laravel",
+    "name": "c5vargas/laravel-api-server",
+    "description": "A collection of Laravel API starter kits using the repository pattern. Very flexible and useful when developing medium to large scale applications.",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "authors": [
+        {
+            "name": "Carles Vargas",
+            "email": "carlesvargas5@gmail.com"
+        }
+    ],
     "keywords": [
         "framework",
         "laravel"
