@@ -2,18 +2,14 @@
 
 ## About Laravel API Server
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A collection of Laravel API starter kits using the repository pattern. Very flexible and useful when developing medium to large scale applications.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+An Application Programming Interface, denoted as API, enables applications to access data and other external software functionalities. APIs are gaining popularity among developers since they save time and resources. Companies do not need to develop complex systems from scratch.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+They can opt to consume data from other existing frameworks. An API is responsible in returning the appropriate response whenever an application sends a request.
+That is why this GIT repository exists, to facilitate the creation of applications and start with a previously configured and robust API server. 
 
+All you have to do is start creating your own Models and Controllers!
 
 ## How works repository pattern arquitecture
 
@@ -21,11 +17,27 @@ The Pattern Repository architecture in Laravel is a design pattern used to separ
 
 In this architecture, the data model is treated as a collection of objects, which are used to interact with the database. The Repository Pattern acts as an interface between the business layer and the data access layer. Instead of the business layer interacting directly with the data access layer, it does so through a repository that implements a defined interface.
 
+## Ready to use:
+- Fully prepared authentication system.
+- [Events](https://laravel.com/docs/9.x/events), [Listeners](https://laravel.com/docs/9.x/events#registering-events-and-listeners) and [Observers](https://laravel.com/docs/9.x/eloquent#observers) when users sign up.
+- [Seeders](https://laravel.com/docs/9.x/seeding#writing-seeders) and [Model Factories](https://laravel.com/docs/9.x/eloquent-factories#main-content) to import test data.
+- Responsive mail template.
+- Controller to manage all json responses.
+- Model Transformers to include the fields to be returned from a model.
+- [Validations in Requests](https://laravel.com/docs/9.x/validation#form-request-validation) to return error messages in json format in a more flexible and easier way.
+- EventServiceProvider and RepositoryServiceProvider initialized.
+- [Language-ready](https://laravel.com/docs/9.x/localization#main-content): Prepared for use in another language.
+- [Passport](https://laravel.com/docs/9.x/passport#main-content) installed and ready to run.
+
+## System Requeriments
+- PHP 8.0 - 8.2
+Laravel 9.x requires a minimum PHP version of 8.0.
+
 ## How to install
 
 The first thing to do is to clone the repository from this git repository.
 
-Once you have the software downloaded, you will need to configure the .env file. This file is important because it contains the settings needed to connect to the database and other important services.
+Once you have the software downloaded, you will need to configure the .env file. This file is important because it contains the settings needed to connect to the database and other important services. Copy the .env.example file and name it .env
 
 Composer is a package manager for PHP that is used to install software dependencies. Run the command in the terminal in the directory of the downloaded software. Composer will install all the dependencies necessary for the software to function properly.
 
@@ -54,3 +66,5 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<small>Updated at 17.04.23</small>
