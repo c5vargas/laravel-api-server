@@ -35,23 +35,29 @@ Laravel 9.x requires a minimum PHP version of 8.0.
 
 ## How to install
 
-The first thing to do is to clone the repository from this git repository.
+The first thing to do is to download the package from composer.
+
+Composer is a package manager for PHP that is used to install software dependencies. Execute the command in the terminal in the directory where you want to create the project. Composer will install all the dependencies necessary for the software to function properly.
+
+You can do this by performing the following command.
+
+```
+composer create c5vargas/laravel-api-server
+```
 
 Once you have the software downloaded, you will need to configure the .env file. This file is important because it contains the settings needed to connect to the database and other important services. Copy the .env.example file and name it .env
 
-Composer is a package manager for PHP that is used to install software dependencies. Run the command in the terminal in the directory of the downloaded software. Composer will install all the dependencies necessary for the software to function properly.
-
 ```
-composer install
+cp .env-example .env
 ```
 
 This command is used to migrate the database and load the test data. Run the command in the terminal in the downloaded software directory. This will create the necessary tables in the database and load the initial data.
 
 ```
-php artisan migrate --seed
+php artisan migrate:refresh --seed
 ```
 
-Run php artisan serve: Finally, run the command in the terminal in the directory of the downloaded software. This command will start a local server so you can access the software from your web browser.
+Finally, run the command in the terminal in the directory of the downloaded software. This command will start a local server so you can access the software from your web browser.
 
  ```
  php artisan serve
