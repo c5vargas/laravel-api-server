@@ -20,12 +20,13 @@
     "controller.auth.invalid_password": "These credentials do not match our records.",
     "controller.auth.profile_failed": "Your profile could not be updated.",
     "controller.auth.profile_success": "Your account has been successfully updated.",
-    "controller.auth.email_or_token_invalid": "El token o el correo electrónico no es válido.",
+    "controller.auth.email_or_token_invalid": "The token or email is not valid.",
     "controller.auth.password_reset": "Your password has been reset!",
     "controller.auth.email_failed": "The email provided is not valid.",
     "controller.auth.forget_password": "We have emailed your password reset link!",
     "controller.auth.logout": "The session has been successfully closed.",
     "controller.user.deleted": "User successfully deleted.",
     "controller.user.updated": "User data has been updated correctly.",
+    "controller.auth.login_attempts": "IP address banned. Too many login attempts.",
     "controller.common.error_500": "An internal error has occurred, please try again later."
 }

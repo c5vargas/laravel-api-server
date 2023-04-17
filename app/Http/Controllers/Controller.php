@@ -47,10 +47,10 @@ class Controller extends BaseController
             'user'  => $userTransformed,
             'status'=> 200
         ];
-        return response()->json($data);
+        return response()->json($data, 200);
     }
 
-    protected function respondWithError(string $message, int $status)
+    protected function respondWithError(string $message, int $status = 500)
     {
         $data = [
             'message' => $message,
@@ -60,22 +60,22 @@ class Controller extends BaseController
         return response(compact('data'), $status);
     }
 
-    protected function respondWithMessage(string $message)
+    protected function respondWithMessage(string $message, int $status = 200)
     {
         $data = [
             'message' => $message,
-            'status' => 200
+            'status' => $status
         ];
-        return response()->json($data);
+        return response()->json($data, $status);
     }
 
-    protected function respondWithArray(array $array)
+    protected function respondWithArray(array $array, int $status = 200)
     {
         $data = [
             'results' => $array,
-            'status' => 200
+            'status' => $status
         ];
-        return response()->json($data);
+        return response()->json($data, $status);
     }
 
     protected function respondWithItem(object $item, int $status = 200)
@@ -87,7 +87,7 @@ class Controller extends BaseController
             'results' => $itemTransformed,
             'status'  => $status
         ];
-        return response()->json($data);
+        return response()->json($data, $status);
     }
 
     protected function respondWithCollection(object $item, int $status = 200)

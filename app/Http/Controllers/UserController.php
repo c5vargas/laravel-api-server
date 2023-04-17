@@ -6,6 +6,7 @@ use App\Http\Requests\Api\Users\UserCreateRequest;
 use App\Http\Requests\Api\Users\UserUpdateRequest;
 use App\Http\Transformers\UserTransformer;
 use App\Repositories\UserRepositoryInterface;
+use Exception;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -46,7 +47,9 @@ class UserController extends Controller
     {
         $updated = $this->repository->update($request->validated(), $request->input('user_id'));
 
-        if(!$updated) return $this->respondWithError(__('controller.common.error_500'), 500);
+        if(!$updated)
+            throw new Exception(__('controller.common.error_500'), 500);
+
         return $this->respondWithMessage(__('controller.user.updated'));
     }
 
@@ -54,7 +57,9 @@ class UserController extends Controller
     {
         $deleted = $this->repository->delete($id);
 
-        if(!$deleted) return $this->respondWithError( __('controller.common.error_500'), 500);
+        if(!$deleted)
+            throw new Exception(__('controller.common.error_500'), 500);
+
         return $this->respondWithMessage(__('controller.user.deleted'));
     }
 }
