@@ -22,7 +22,8 @@
         "laravel/passport": "^10.4",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.4",
-        "league/fractal": "^0.20.1"
+        "league/fractal": "^0.20.1",
+        "guzzlehttp/psr7": "2.4.5"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
