@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Request;
 
 class Handler extends ExceptionHandler
 {
@@ -31,10 +32,17 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
-        $this->renderable(function (Exception $e, $request) {
-            return response()->json(['message' => $e->getMessage(), 'status' => $e->getCode()], 401);
+        $this->renderable(function (Exception $e, Request $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'message' => $e->getMessage(),
+                    'status' => $e->getCode(),
+                    'trace' => $e->getTrace(),
+                    'exception' => $e->getFile()
+                ], 404);
+            }
         });
     }
 }
