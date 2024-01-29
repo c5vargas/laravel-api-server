@@ -19,19 +19,18 @@ In this architecture, the data model is treated as a collection of objects, whic
 
 ## Ready to use:
 - Fully prepared authentication system.
-- [Events](https://laravel.com/docs/9.x/events), [Listeners](https://laravel.com/docs/9.x/events#registering-events-and-listeners) and [Observers](https://laravel.com/docs/9.x/eloquent#observers) when users sign up.
-- [Seeders](https://laravel.com/docs/9.x/seeding#writing-seeders) and [Model Factories](https://laravel.com/docs/9.x/eloquent-factories#main-content) to import test data.
+- [Events](https://laravel.com/docs/10.x/events), [Listeners](https://laravel.com/docs/10.x/events#registering-events-and-listeners) and [Observers](https://laravel.com/docs/10.x/eloquent#observers) when users sign up.
+- [Seeders](https://laravel.com/docs/10.x/seeding#writing-seeders) and [Model Factories](https://laravel.com/docs/10.x/eloquent-factories#main-content) to import test data.
 - Responsive mail template.
 - Controller to manage all json responses.
 - Model Transformers to include the fields to be returned from a model.
-- [Validations in Requests](https://laravel.com/docs/9.x/validation#form-request-validation) to return error messages in json format in a more flexible and easier way.
+- [Validations in Requests](https://laravel.com/docs/10.x/validation#form-request-validation) to return error messages in json format in a more flexible and easier way.
 - EventServiceProvider and RepositoryServiceProvider initialized.
-- [Language-ready](https://laravel.com/docs/9.x/localization#main-content): Prepared for use in another language.
-- [Passport](https://laravel.com/docs/9.x/passport#main-content) installed and ready to run.
+- [Language-ready](https://laravel.com/docs/10.x/localization#main-content): Prepared for use in another language.
+- [Passport](https://laravel.com/docs/10.x/passport#main-content) installed and ready to run.
 
 ## System Requeriments
-- PHP 8.0 - 8.2
-Laravel 9.x requires a minimum PHP version of 8.0.
+- Laravel 10.x requires a minimum PHP version of 8.2.
 
 ## How to install
 
@@ -48,7 +47,7 @@ composer create c5vargas/laravel-api-server
 Once you have the software downloaded, you will need to configure the .env file. This file is important because it contains the settings needed to connect to the database and other important services. Copy the .env.example file and name it .env
 
 ```
-cp .env-example .env
+cp .env.example .env
 ```
 
 This command is used to migrate the database and load the test data. Run the command in the terminal in the downloaded software directory. This will create the necessary tables in the database and load the initial data.
@@ -73,4 +72,4 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-<small>Updated at 17.04.23</small>
+<small>Updated at 29.01.24</small>
