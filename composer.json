@@ -1,5 +1,5 @@
 {
-    "name": "c5vargas/laravel-api-server",
+    "name": "c5vargas/server_hacoo_hunt",
     "description": "A collection of Laravel API starter kits using the repository pattern. Very flexible and useful when developing medium to large scale applications.",
     "type": "project",
     "authors": [
@@ -8,17 +8,13 @@
             "email": "carlesvargas5@gmail.com"
         }
     ],
-    "keywords": [
-        "framework",
-        "laravel"
-    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8",        
+        "laravel/tinker": "^2.8",
         "guzzlehttp/psr7": "2.4.5",
         "laravel/passport": "^11",
         "league/fractal": "^0.20.1",
