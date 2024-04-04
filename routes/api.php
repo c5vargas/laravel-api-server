@@ -45,6 +45,7 @@ Route::prefix('products')->group(function () {
     Route::get('/random', [ProductController::class, 'getRandom']);
     Route::get('/{id}', [ProductController::class, 'show']);
     Route::get('/slug/{slug}', [ProductController::class, 'getBySlug']);
+    Route::get('/cat/{cat}', [ProductController::class, 'getByCat']);
     Route::get('/search/{slug}', [ProductController::class, 'search']);
 
     Route::post('', [ProductController::class, 'create']); //TODO move to auth middleware
@@ -58,6 +59,7 @@ Route::prefix('categories')->group(function () {
     Route::get('', [CategoryController::class, 'index']);
     Route::get('/featured', [CategoryController::class, 'getFeatured']);
     Route::get('/{id}', [CategoryController::class, 'show']);
+    Route::get('/slug/{slug}', [CategoryController::class, 'getBySlug']);
 });
 
 Route::prefix('brands')->group(function () {

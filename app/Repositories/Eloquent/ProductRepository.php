@@ -1,7 +1,9 @@
 <?php
 namespace App\Repositories\Eloquent;
 
+use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
 class ProductRepository extends BaseRepository
@@ -21,6 +23,13 @@ class ProductRepository extends BaseRepository
     public function findBySlug($slug)
     {
         return $this->model->where('slug', $slug)->first();
+    }
+
+    public function findByCategory($cat)
+    {
+        return $this->model::whereHas('categories', function (Builder $query) use ($cat) {
+            $query->where('slug', $cat);
+        })->get();
     }
 
     public function random()

@@ -21,4 +21,9 @@ class CategoryRepository extends BaseRepository
     {
         return $this->model->where('featured', true)->get();
     }
+
+    public function findBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
+    }
 }
