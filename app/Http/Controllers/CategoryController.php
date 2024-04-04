@@ -34,12 +34,6 @@ class CategoryController extends Controller
         return $this->respondWithCollection($items);
     }
 
-    public function getBySlug(string $slug)
-    {
-        $item = $this->repository->findBySlug($slug);
-        return $this->respondWithItem($item);
-    }
-
     public function show(int $id)
     {
         $item = $this->repository->find($id);

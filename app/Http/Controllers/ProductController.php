@@ -55,11 +55,6 @@ class ProductController extends Controller
         return $this->respondWithItem($item);
     }
 
-    public function getByCat(string $category)
-    {
-        $items = $this->repository->findByCategory($category);
-        return $this->respondWithCollection($items);
-    }
 
     public function create(CreateProductRequest $request)
     {

@@ -15,7 +15,6 @@ class CategoryTransformer extends TransformerAbstract
         return [
             'id' => $item->id,
             'name' => $item->name,
-            'slug' => $item->slug,
             'image' => $item->image,
         ];
     }
