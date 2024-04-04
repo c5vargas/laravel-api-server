@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -29,40 +26,14 @@ Route::prefix('auth')->group(function () {
     Route::post('password/reset', [AuthController::class, 'resetPassword'])->name('auth.reset-password');
 });
 
-Route::prefix('users')->group(function () {
-    Route::get('', [UserController::class, 'index']);
-    Route::get('/{id}', [UserController::class, 'show']);
+Route::middleware('auth:api')->group(function () {
 
-    Route::middleware('auth:api')->group(function () {
-        Route::post('', [UserController::class, 'create']);
-        Route::post('/update', [UserController::class, 'update']);
-        Route::delete('/{id}', [UserController::class, 'delete']);
+    Route::prefix('users')->group(function () {
+        Route::get('', [UserController::class, 'index'])->name('users.index');
+        Route::get('/{id}', [UserController::class, 'show'])->name('users.show');
+        Route::post('', [UserController::class, 'create'])->name('users.create');
+        Route::post('/update', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/{id}', [UserController::class, 'delete'])->name('users.delete');
     });
+
 });
-
-Route::prefix('products')->group(function () {
-    Route::get('', [ProductController::class, 'index']);
-    Route::get('/random', [ProductController::class, 'getRandom']);
-    Route::get('/{id}', [ProductController::class, 'show']);
-    Route::get('/slug/{slug}', [ProductController::class, 'getBySlug']);
-    Route::get('/search/{slug}', [ProductController::class, 'search']);
-
-    Route::post('', [ProductController::class, 'create']); //TODO move to auth middleware
-    Route::middleware('auth:api')->group(function () {
-        Route::post('/update', [ProductController::class, 'update']);
-        Route::delete('/{id}', [ProductController::class, 'delete']);
-    });
-});
-
-Route::prefix('categories')->group(function () {
-    Route::get('', [CategoryController::class, 'index']);
-    Route::get('/featured', [CategoryController::class, 'getFeatured']);
-    Route::get('/{id}', [CategoryController::class, 'show']);
-});
-
-Route::prefix('brands')->group(function () {
-    Route::get('', [BrandController::class, 'index']);
-    Route::get('/{id}', [BrandController::class, 'show']);
-});
-
-
