@@ -34,9 +34,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     public function delete(int $id): bool
     {
         $model = $this->find($id);
-
         if(!$model) return false;
-        if($model->projects()->count() > 0) return false;
 
         return $model->delete();
     }
